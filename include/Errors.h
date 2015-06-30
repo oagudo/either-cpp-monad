@@ -8,6 +8,11 @@ private:
     std::string _error;
 };
 
+std::ostream& operator<<(std::ostream& os, const Error& error) {
+    os << error.ToString();
+    return  os;
+}
+
 #define APPLICATION_ERROR(error_name, error_desc) \
     struct error_name : public Error { \
         error_name() : Error(error_desc) { }  \
@@ -15,7 +20,8 @@ private:
 
 // Custom application errors
 //
-APPLICATION_ERROR(DivideByZero, "Attempt to dive by zero")
-APPLICATION_ERROR(InvalidArg, "Invalid argument")
+APPLICATION_ERROR(AutenticationError,           "Autentication error")
+APPLICATION_ERROR(InvalidUser,                  "Invalid user")
+APPLICATION_ERROR(AttemptToDivideByZero,        "Attempt to divide by zero")
 
 #endif

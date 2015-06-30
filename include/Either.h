@@ -6,8 +6,10 @@
 template <typename TLeft, typename TRight>
 class Either {
     public:
-        Either(const TLeft&& l) : _l(l) {}
-        Either(const TRight&& r) : _r(r) { }
+        Either(const TLeft& l) : _l(l) {}
+        Either(const TRight& r) : _r(r) {}
+        Either(TLeft&& l) : _l(l) {}
+        Either(TRight&& r) : _r(r) {}
         bool IsLeft() const { return _l; }
         bool IsRight() const { return _r; }
         TLeft Left() const { return _l.get();}
