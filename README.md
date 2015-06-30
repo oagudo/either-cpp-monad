@@ -1,7 +1,7 @@
 either-cpp-monad
 ===============
 
-Simple C++ either Monad implementation
+Simple C++ implementation of the either monad
 
 To compile the example:
 
